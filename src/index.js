@@ -4,6 +4,20 @@ import React from 'react'
 import ReactDom from 'react-dom'
 
 const App = () => {
-	return <h1>React Practices</h1>
+	return (
+		<>
+			<header>
+				<h1>React Practices</h1>
+			</header>
+			<nav>
+				<ul>
+					<li><a href="#hoc">Higher Order Components</a></li>
+				</ul>
+			</nav>
+			<section>
+				<article>
+				</article>
+			</section>
+		</>)
 }
 ReactDom.render(<App />, document.getElementById('app'))
