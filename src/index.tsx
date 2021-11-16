@@ -8,6 +8,9 @@ import {
 } from "react-router-dom";
 import ChildrenPropsWrapperComponent from "./concepts/inheritance/childrenProps";
 import LazyLoadingWrapperComponent from "./concepts/lazy-loading";
+import NumerList from "./concepts/lists/lists";
+
+const primaryNumberArray = [1, 3, 5, 7, 11, 13];
 
 const App = () => {
   return useRoutes([
@@ -16,6 +19,7 @@ const App = () => {
       element: <HomeComponent />,
       children: [
         { path: "/", element: <article>Home's Content</article> },
+        { path: "list", element: <NumerList list={primaryNumberArray} /> },
         {
           path: "lazyLoading",
           element: (
@@ -26,13 +30,21 @@ const App = () => {
             </article>
           ),
         },
-		{ 
-			path: "/inheritance",
-			element: <><article>Inheritance's Content</article><Outlet /></>,
-			children: [
-				{ path: "/inheritance/childrenProps", element: <ChildrenPropsWrapperComponent /> }
-			]
-		},
+        {
+          path: "/inheritance",
+          element: (
+            <>
+              <article>Inheritance's Content</article>
+              <Outlet />
+            </>
+          ),
+          children: [
+            {
+              path: "/inheritance/childrenProps",
+              element: <ChildrenPropsWrapperComponent />,
+            },
+          ],
+        },
       ],
     },
   ]);
@@ -48,6 +60,9 @@ const HomeComponent = () => {
         <ul>
           <li>
             <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/list">List</Link>
           </li>
           <li>
             <Link to="/lazyLoading">Lazy Loading</Link>
