@@ -8,14 +8,14 @@ interface IListItem<T> {
 	value: T
 }
 
-const NumberListItem = (props: IListItem<number>) => {
-	return <li>{props.value}</li>
+const NumberListItem = ({ value }: IListItem<number>) => {
+	return <li>{value}</li>
 }
 
-const NumerList = (props: IList<number>) => {
+const NumerList = ({ list }: IList<number>) => {
 	return (
 		<ul>
-			{props.list.length > 0 && props.list.map(num =>
+			{list.length > 0 && list.map(num =>
 				<NumberListItem key={num.toString()} value={num} />
 			)}
 		</ul>
