@@ -3,13 +3,14 @@ import * as ReactDom from "react-dom";
 import {
   useRoutes,
   Outlet,
-  Link,
+  NavLink,
   BrowserRouter as Router,
 } from "react-router-dom";
 import NotFoundPage from "./common/NotFoundPage";
 import ChildrenPropsWrapperComponent from "./concepts/inheritance/childrenProps";
 import LazyLoadingWrapperComponent from "./concepts/lazy-loading";
 import NumerList from "./concepts/lists/lists";
+import './index.css';
 
 const primaryNumberArray = [1, 3, 5, 7, 11, 13];
 
@@ -59,23 +60,15 @@ const HomeComponent = () => {
         <h1>React Practices</h1>
       </header>
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/list">List</Link>
-          </li>
-          <li>
-            <Link to="/lazyLoading">Lazy Loading</Link>
-          </li>
-          <li>
-            <Link to="/inheritance/childrenProps">Children Props</Link>
-          </li>
-          <li>
-            <Link to="/hoc">Higher Order Components</Link>
-          </li>
-        </ul>
+            <NavLink to="/">Home</NavLink>
+			{" | "}
+            <NavLink to="/list">List</NavLink>
+			{" | "}
+            <NavLink to="/lazyLoading">Lazy Loading</NavLink>
+			{" | "}
+            <NavLink to="/inheritance/childrenProps">Children Props</NavLink>
+			{" | "}
+            <NavLink to="/hoc">Higher Order Components</NavLink>
       </nav>
       <section>
         <Outlet />
