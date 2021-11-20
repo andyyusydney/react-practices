@@ -9,13 +9,12 @@ const htmlPlugin = new HtmlWebPackPlugin({
 module.exports = {
 	mode: 'development',
 	entry: path.resolve(__dirname, 'src', 'index.tsx'),
+	devtool: 'cheap-module-source-map',
 	module: {
 		rules: [{
 			test: /\.js$/,
 			exclude: /node_modules/,
-			use: {
-				loader: "babel-loader"
-			}
+			use: ["babel-loader", "eslint-loader"]
 		},
 		{
 			test: /\.tsx?$/,
