@@ -6,6 +6,7 @@ import {
   Link,
   BrowserRouter as Router,
 } from "react-router-dom";
+import NotFoundPage from "./common/NotFoundPage";
 import ChildrenPropsWrapperComponent from "./concepts/inheritance/childrenProps";
 import LazyLoadingWrapperComponent from "./concepts/lazy-loading";
 import NumerList from "./concepts/lists/lists";
@@ -45,6 +46,7 @@ const App = () => {
             },
           ],
         },
+		{ path: "*", element: <NotFoundPage /> }
       ],
     },
   ]);
