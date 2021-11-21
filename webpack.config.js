@@ -9,6 +9,11 @@ const htmlPlugin = new HtmlWebPackPlugin({
 module.exports = {
 	mode: 'development',
 	entry: path.resolve(__dirname, 'src', 'index.tsx'),
+	output: {
+		path: path.resolve(__dirname, 'dist'),
+		filename: 'index_bundle.js',
+		publicPath: '/'
+	},
 	devtool: 'cheap-module-source-map',
 	module: {
 		rules: [{
@@ -28,6 +33,9 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js']
+	},
+	devServer: {
+		historyApiFallback: true
 	},
 	plugins: [htmlPlugin]
 }
