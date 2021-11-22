@@ -26,6 +26,7 @@ module.exports = {
 			exclude: /node_modules/,
 			loader: 'ts-loader'
 		},
+		{test: /\.(jpe?g|png|gif|svg)$/i, exclude: /(node_modules)/, loader: "file-loader"},
 		{
 			test: /\.css$/,
 			use: ["style-loader", "css-loader"]

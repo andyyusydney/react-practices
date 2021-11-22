@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import NotFoundPage from "./common/NotFoundPage";
 import ChildrenPropsWrapperComponent from "./concepts/inheritance/childrenProps";
+import Mouse from "./concepts/inheritance/renderProps/Mouse";
+import MouseWrapper from "./concepts/inheritance/renderProps/MouseWrapper";
 import LazyLoadingWrapperComponent from "./concepts/lazy-loading";
 import NumerList from "./concepts/lists/lists";
 import './index.css';
@@ -45,6 +47,10 @@ const App = () => {
               path: "/inheritance/childrenProps",
               element: <ChildrenPropsWrapperComponent />,
             },
+			{
+				path: "/inheritance/renderProps",
+				element: <MouseWrapper />
+			}
           ],
         },
 		{ path: "*", element: <NotFoundPage /> }
@@ -67,6 +73,7 @@ const HomeComponent = () => {
             <NavLink to="/lazyLoading">Lazy Loading</NavLink>
 			{" | "}
             <NavLink to="/inheritance/childrenProps">Children Props</NavLink>
+			<NavLink to="/inheritance/renderProps">Render Props</NavLink>
 			{" | "}
             <NavLink to="/hoc">Higher Order Components</NavLink>
       </nav>

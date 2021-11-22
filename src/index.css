@@ -1,3 +1,9 @@
 a.active {
 	color: red
 }
+
+.mousePos {
+	border: 1px solid #000;
+	height: 100vh;
+	width: 100vw;
+}
