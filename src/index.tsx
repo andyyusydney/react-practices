@@ -12,6 +12,7 @@ import ParentContextWrapper from "./concepts/inheritance/context/ContextWrapper"
 import MouseWrapper from "./concepts/inheritance/renderProps/MouseWrapper";
 import LazyLoadingWrapperComponent from "./concepts/lazy-loading";
 import NumerList from "./concepts/lists/lists";
+import StopWatch from "./concepts/refs/StopWatch";
 import './index.css';
 
 const primaryNumberArray = [1, 3, 5, 7, 11, 13];
@@ -38,8 +39,8 @@ const App = () => {
           path: "/inheritance",
           element: (
             <>
-              <article>Inheritance's Content</article>
-              <Outlet />
+              <h2>Inheritance's Content</h2>
+              <article><Outlet /></article>
             </>
           ),
           children: [
@@ -57,6 +58,20 @@ const App = () => {
 			}
           ],
         },
+		{
+			path: "/useRef", element: (
+				<>
+				<h2>Ref</h2>
+				<article><Outlet /></article>
+				</>
+			),
+			children: [
+				{
+					path: "/useRef/stopWatch",
+					element: <StopWatch />
+				}
+			]
+		},
 		{ path: "*", element: <NotFoundPage /> }
       ],
     },
@@ -81,6 +96,8 @@ const HomeComponent = () => {
 			<NavLink to="/inheritance/context">Context</NavLink>
 			{" | "}
 			<NavLink to="/inheritance/renderProps">Render Props</NavLink>
+			{" | "}
+			<NavLink to="/useRef/stopWatch">Refs - Stop Watch</NavLink>
 			{" | "}
             <NavLink to="/hoc">Higher Order Components</NavLink>
       </nav>
