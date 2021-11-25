@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import NotFoundPage from "./common/NotFoundPage";
 import FormComponent from "./concepts/form/FormComponent";
+import FunctionalPureParentComponent from "./concepts/hoc/FunctionalPureParentComponent";
 import UseMemoComponent from "./concepts/hooks/UseMemoComponent";
 import ChildrenPropsWrapperComponent from "./concepts/inheritance/childrenProps";
 import ParentContextWrapper from "./concepts/inheritance/context/ContextWrapper";
@@ -15,7 +16,7 @@ import MouseWrapper from "./concepts/inheritance/renderProps/MouseWrapper";
 import LazyLoadingWrapperComponent from "./concepts/lazy-loading";
 import NumerList from "./concepts/lists/lists";
 import StopWatch from "./concepts/refs/StopWatch";
-import './index.css';
+import "./index.css";
 
 const primaryNumberArray = [1, 3, 5, 7, 11, 13];
 
@@ -42,7 +43,9 @@ const App = () => {
           element: (
             <>
               <h2>Inheritance's Content</h2>
-              <article><Outlet /></article>
+              <article>
+                <Outlet />
+              </article>
             </>
           ),
           children: [
@@ -50,48 +53,68 @@ const App = () => {
               path: "/inheritance/childrenProps",
               element: <ChildrenPropsWrapperComponent />,
             },
-			{
-				path: "/inheritance/renderProps",
-				element: <MouseWrapper />
-			},
-			{
-				path: "/inheritance/context",
-				element: <ParentContextWrapper />
-			}
+            {
+              path: "/inheritance/renderProps",
+              element: <MouseWrapper />,
+            },
+            {
+              path: "/inheritance/context",
+              element: <ParentContextWrapper />,
+            },
           ],
         },
-		{
-			path: "/useRef", element: (
-				<>
-				<h2>Ref</h2>
-				<article><Outlet /></article>
-				</>
-			),
-			children: [
-				{
-					path: "/useRef/stopWatch",
-					element: <StopWatch />
-				}
-			]
-		},
-		{
-			path: "/form", element: <FormComponent />
-		},
-		{
-			path: "/hooks", element: (
-				<>
-				<h2>React Hooks</h2>
-				<Outlet />
-				</>
-			),
-			children: [
-				{
-					path: "/hooks/useMemo",
-					element: <UseMemoComponent />
-				}
-			]
-		},
-		{ path: "*", element: <NotFoundPage /> }
+        {
+          path: "/useRef",
+          element: (
+            <>
+              <h2>Ref</h2>
+              <article>
+                <Outlet />
+              </article>
+            </>
+          ),
+          children: [
+            {
+              path: "/useRef/stopWatch",
+              element: <StopWatch />,
+            },
+          ],
+        },
+        {
+          path: "/form",
+          element: <FormComponent />,
+        },
+        {
+          path: "/hooks",
+          element: (
+            <>
+              <h2>React Hooks</h2>
+              <Outlet />
+            </>
+          ),
+          children: [
+            {
+              path: "/hooks/useMemo",
+              element: <UseMemoComponent />,
+            },
+          ],
+        },
+        {
+          path: "/hoc",
+          element: (
+            <>
+              <h2>HOC</h2>
+              <Outlet />
+            </>
+          ),
+		  children: [
+			  {
+				  path: "/hoc/functionalPureComponent",
+				  element: <FunctionalPureParentComponent />
+			  }
+		  ]
+        },
+        { path: "*", element: <NotFoundPage /> },
       ],
     },
   ]);
@@ -104,25 +127,29 @@ const HomeComponent = () => {
         <h1>React Practices</h1>
       </header>
       <nav>
-            <NavLink to="/">Home</NavLink>
-			{" | "}
-            <NavLink to="/list">List</NavLink>
-			{" | "}
-            <NavLink to="/lazyLoading">Lazy Loading</NavLink>
-			{" | "}
-            <NavLink to="/inheritance/childrenProps">Children Props</NavLink>
-			{" | "}
-			<NavLink to="/inheritance/context">Context</NavLink>
-			{" | "}
-			<NavLink to="/inheritance/renderProps">Render Props</NavLink>
-			{" | "}
-			<NavLink to="/useRef/stopWatch">Refs - Stop Watch</NavLink>
-			{" | "}
-			<NavLink to="/form">Form</NavLink>
-			{" | "}
-			<NavLink to="/hooks/useMemo">Use Memo</NavLink>
-			{" | "}
-            <NavLink to="/hoc">Higher Order Components</NavLink>
+        <NavLink to="/">Home</NavLink>
+        {" | "}
+        <NavLink to="/list">List</NavLink>
+        {" | "}
+        <NavLink to="/lazyLoading">Lazy Loading</NavLink>
+        {" | "}
+        <NavLink to="/inheritance/childrenProps">Children Props</NavLink>
+        {" | "}
+        <NavLink to="/inheritance/context">Context</NavLink>
+        {" | "}
+        <NavLink to="/inheritance/renderProps">Render Props</NavLink>
+        {" | "}
+        <NavLink to="/useRef/stopWatch">Refs - Stop Watch</NavLink>
+        {" | "}
+        <NavLink to="/form">Form</NavLink>
+        {" | "}
+        <NavLink to="/hooks/useMemo">Use Memo</NavLink>
+        {" | "}
+        <NavLink to="/hoc/functionalPureComponent">
+          Functional Pure Component
+        </NavLink>
+        {" | "}
+        <NavLink to="/hoc">Higher Order Components</NavLink>
       </nav>
       <section>
         <Outlet />
