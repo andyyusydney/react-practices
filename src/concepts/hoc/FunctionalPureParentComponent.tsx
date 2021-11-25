@@ -25,8 +25,10 @@ const FunctionalPureParentComponent = () => {
 	return (
 		<>
 		<h3>Functional Pure Component</h3>
-		<FunctionalPureChildComponent counter={counter} />
 		<button onClick={handleIncrement}>Increment</button>
+		<hr />
+		Child:
+		<FunctionalPureChildComponent counter={counter} />
 		</>
 	)
 }
