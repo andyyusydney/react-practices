@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import NotFoundPage from "./common/NotFoundPage";
 import FormComponent from "./concepts/form/FormComponent";
+import UseMemoComponent from "./concepts/hooks/UseMemoComponent";
 import ChildrenPropsWrapperComponent from "./concepts/inheritance/childrenProps";
 import ParentContextWrapper from "./concepts/inheritance/context/ContextWrapper";
 import MouseWrapper from "./concepts/inheritance/renderProps/MouseWrapper";
@@ -76,6 +77,20 @@ const App = () => {
 		{
 			path: "/form", element: <FormComponent />
 		},
+		{
+			path: "/hooks", element: (
+				<>
+				<h2>React Hooks</h2>
+				<Outlet />
+				</>
+			),
+			children: [
+				{
+					path: "/hooks/useMemo",
+					element: <UseMemoComponent />
+				}
+			]
+		},
 		{ path: "*", element: <NotFoundPage /> }
       ],
     },
@@ -104,6 +119,8 @@ const HomeComponent = () => {
 			<NavLink to="/useRef/stopWatch">Refs - Stop Watch</NavLink>
 			{" | "}
 			<NavLink to="/form">Form</NavLink>
+			{" | "}
+			<NavLink to="/hooks/useMemo">Use Memo</NavLink>
 			{" | "}
             <NavLink to="/hoc">Higher Order Components</NavLink>
       </nav>
