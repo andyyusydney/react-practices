@@ -7,6 +7,7 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 import NotFoundPage from "./common/NotFoundPage";
+import NameClassComponent from "./concepts/es6/NameComponent";
 import FormComponent from "./concepts/form/FormComponent";
 import FunctionalPureParentComponent from "./concepts/hoc/FunctionalPureParentComponent";
 import UseMemoComponent from "./concepts/hooks/UseMemoComponent";
@@ -109,30 +110,47 @@ const App = () => {
               <Outlet />
             </>
           ),
-		  children: [
-			  {
-				  path: "/hoc/functionalPureComponent",
-				  element: <FunctionalPureParentComponent />
-			  }
-		  ]
+          children: [
+            {
+              path: "/hoc/functionalPureComponent",
+              element: <FunctionalPureParentComponent />,
+            },
+          ],
         },
-		{
-			path: "/state", element: (
-				<>
-				<h2>React State - Clock</h2>
-				<Outlet />
-				</>
-			),
-			children: [
-				{
-					path: "/state/clockFunctional", element: <Clock />
-				},
-				{
-					path: "/state/clockClass", element: <ClockClass />
-				}
-			]
-		},
-
+        {
+          path: "/state",
+          element: (
+            <>
+              <h2>React State - Clock</h2>
+              <Outlet />
+            </>
+          ),
+          children: [
+            {
+              path: "/state/clockFunctional",
+              element: <Clock />,
+            },
+            {
+              path: "/state/clockClass",
+              element: <ClockClass />,
+            },
+          ],
+        },
+        {
+          path: "/es6",
+          element: (
+            <>
+              <h2>ES6 - Getter Setter</h2>
+              <Outlet />
+            </>
+          ),
+          children: [
+            {
+              path: "/es6/getterSetter",
+              element: <NameClassComponent name="Andy" />,
+            },
+          ],
+        },
         { path: "*", element: <NotFoundPage /> },
       ],
     },
@@ -168,10 +186,12 @@ const HomeComponent = () => {
           Functional Pure Component
         </NavLink>
         {" | "}
-		<NavLink to="/state/clockFunctional">Clock Functional</NavLink>
-		{" | "}
-		<NavLink to="/state/clockClass">Clock Class</NavLink>
-		{" | "}
+        <NavLink to="/state/clockFunctional">Clock Functional</NavLink>
+        {" | "}
+        <NavLink to="/state/clockClass">Clock Class</NavLink>
+        {" | "}
+        <NavLink to="/es6/getterSetter">ES6 Getter Setter</NavLink>
+        {" | "}
         <NavLink to="/hoc">Higher Order Components</NavLink>
       </nav>
       <section>
