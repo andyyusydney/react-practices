@@ -16,6 +16,8 @@ import MouseWrapper from "./concepts/inheritance/renderProps/MouseWrapper";
 import LazyLoadingWrapperComponent from "./concepts/lazy-loading";
 import NumerList from "./concepts/lists/lists";
 import StopWatch from "./concepts/refs/StopWatch";
+import Clock from "./concepts/state/Clock";
+import ClockClass from "./concepts/state/Clock.class";
 import "./index.css";
 
 const primaryNumberArray = [1, 3, 5, 7, 11, 13];
@@ -114,6 +116,23 @@ const App = () => {
 			  }
 		  ]
         },
+		{
+			path: "/state", element: (
+				<>
+				<h2>React State - Clock</h2>
+				<Outlet />
+				</>
+			),
+			children: [
+				{
+					path: "/state/clockFunctional", element: <Clock />
+				},
+				{
+					path: "/state/clockClass", element: <ClockClass />
+				}
+			]
+		},
+
         { path: "*", element: <NotFoundPage /> },
       ],
     },
@@ -149,6 +168,10 @@ const HomeComponent = () => {
           Functional Pure Component
         </NavLink>
         {" | "}
+		<NavLink to="/state/clockFunctional">Clock Functional</NavLink>
+		{" | "}
+		<NavLink to="/state/clockClass">Clock Class</NavLink>
+		{" | "}
         <NavLink to="/hoc">Higher Order Components</NavLink>
       </nav>
       <section>
