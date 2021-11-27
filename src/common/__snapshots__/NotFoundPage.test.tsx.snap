@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotFound /> matches snapshot 1`] = `
+<body>
+  <div>
+    <h1>
+      Oops! Page is Not Found!
+    </h1>
+  </div>
+</body>
+`;
