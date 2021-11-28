@@ -32,7 +32,7 @@ const Search = () => {
 	return (
 		<>
 		<h2>Search Wrapper</h2>
-		<input type="input" value={keyword} onChange={handleChange} />
+		<input data-testid="keyword" type="input" value={keyword} onChange={handleChange} />
 		<button onClick={searchStories}>Search</button>
 		<StoriesList stories={stories} />
 		</>
