@@ -7,7 +7,7 @@ export const HelloContext = createContext({ helloText: "" });
 
 const ParentContextWrapper = () => {
   const [helloText] = useState("Hello!");
-  const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState(0);
   const handleClick = (e: any) => setCounter((counter) => (counter += 1));
 
   return (

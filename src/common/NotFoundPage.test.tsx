@@ -1,4 +1,3 @@
-// src/__test__/notFound.spec.tsx
 import * as React from "react";
 import { render, RenderResult } from "@testing-library/react";
 import NotFoundPage from "./NotFoundPage";
