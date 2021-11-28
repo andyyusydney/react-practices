@@ -17,6 +17,7 @@ import MouseWrapper from "./concepts/inheritance/renderProps/MouseWrapper";
 import LazyLoadingWrapperComponent from "./concepts/lazy-loading";
 import NumerList from "./concepts/lists/lists";
 import StopWatch from "./concepts/refs/StopWatch";
+import Search from "./concepts/search/Search";
 import Clock from "./concepts/state/Clock";
 import ClockClass from "./concepts/state/Clock.class";
 import "./index.css";
@@ -151,6 +152,9 @@ const App = () => {
             },
           ],
         },
+		{
+			path: "/search", element: <Search />
+		},
         { path: "*", element: <NotFoundPage /> },
       ],
     },
@@ -192,6 +196,8 @@ const HomeComponent = () => {
         {" | "}
         <NavLink to="/es6/getterSetter">ES6 Getter Setter</NavLink>
         {" | "}
+		<NavLink to="/search">Search</NavLink>
+		{" | "}
         <NavLink to="/hoc">Higher Order Components</NavLink>
       </nav>
       <section>
