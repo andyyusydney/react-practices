@@ -16,6 +16,8 @@ import ParentContextWrapper from "./concepts/inheritance/context/ContextWrapper"
 import MouseWrapper from "./concepts/inheritance/renderProps/MouseWrapper";
 import LazyLoadingWrapperComponent from "./concepts/lazy-loading";
 import NumerList from "./concepts/lists/lists";
+import NewTodos from "./concepts/redux/new";
+import OldTodos from "./concepts/redux/old";
 import StopWatch from "./concepts/refs/StopWatch";
 import Search from "./concepts/search/Search";
 import Clock from "./concepts/state/Clock";
@@ -155,6 +157,22 @@ const App = () => {
 		{
 			path: "/search", element: <Search />
 		},
+		{
+			path: "/redux", element: (
+				<>
+				<h2>Redux</h2>
+				<Outlet />
+				</>
+			),
+			children: [
+				{
+					path: "/redux/oldRedux", element: <OldTodos />
+				},
+				{
+					path: "/redux/reduxToolkit", element: <NewTodos />
+				},
+			]
+		},
         { path: "*", element: <NotFoundPage /> },
       ],
     },
@@ -199,6 +217,10 @@ const HomeComponent = () => {
 		<NavLink to="/search">Search</NavLink>
 		{" | "}
         <NavLink to="/hoc">Higher Order Components</NavLink>
+		{" | "}
+		<NavLink to="/redux/oldRedux">Old Redux</NavLink>
+		{" | "}
+		<NavLink to="/redux/reduxToolkit">Redux Toolkit</NavLink>
       </nav>
       <section>
         <Outlet />

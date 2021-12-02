@@ -25,7 +25,9 @@
     "history": "5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
     "react-router-dom": "6",
+    "redux": "^4.1.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -40,6 +42,7 @@
     "@types/jest": "^27.0.3",
     "@types/react": "^17.0.34",
     "@types/react-dom": "^17.0.11",
+    "@types/react-redux": "^7.1.20",
     "@types/testing-library__jest-dom": "^5.14.1",
     "@types/testing-library__react": "^10.2.0",
     "@types/uuid": "^8.3.3",
