@@ -10,6 +10,7 @@ import NotFoundPage from "./common/NotFoundPage";
 import NameClassComponent from "./concepts/es6/NameComponent";
 import FormComponent from "./concepts/form/FormComponent";
 import FunctionalPureParentComponent from "./concepts/hoc/FunctionalPureParentComponent";
+import UseHoc from "./concepts/hoc/simpleHoc/index";
 import UseMemoComponent from "./concepts/hooks/UseMemoComponent";
 import ChildrenPropsWrapperComponent from "./concepts/inheritance/childrenProps";
 import ParentContextWrapper from "./concepts/inheritance/context/ContextWrapper";
@@ -118,6 +119,10 @@ const App = () => {
               path: "/hoc/functionalPureComponent",
               element: <FunctionalPureParentComponent />,
             },
+			{
+				path: "/hoc/simpleHoc",
+				element: <UseHoc />
+			}
           ],
         },
         {
@@ -216,7 +221,7 @@ const HomeComponent = () => {
         {" | "}
 		<NavLink to="/search">Search</NavLink>
 		{" | "}
-        <NavLink to="/hoc">Higher Order Components</NavLink>
+        <NavLink to="/hoc/simpleHoc">Higher Order Components</NavLink>
 		{" | "}
 		<NavLink to="/redux/oldRedux">Old Redux</NavLink>
 		{" | "}
