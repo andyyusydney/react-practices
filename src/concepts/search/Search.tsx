@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import StoriesList, {IStory} from './StoriesList'
+import StoriesWithSorting, {IStory} from './StoriesList'
 import { v4 as uuidv4 } from 'uuid';
 
 const Search = () => {
@@ -14,7 +14,6 @@ const Search = () => {
 
 	const searchStories = async () => {
 		const results = await axios.get(`http://hn.algolia.com/api/v1/search?query=${keyword}`)
-		console.log('results.data.hits=', results.data.hits)
 		const mappedResults = results.data.hits.map((story: IStory) => {
 			return {
 				id: uuidv4(),
@@ -34,7 +33,7 @@ const Search = () => {
 		<h2>Search Wrapper</h2>
 		<input data-testid="keyword" type="input" value={keyword} onChange={handleChange} />
 		<button onClick={searchStories}>Search</button>
-		<StoriesList stories={stories} />
+		<StoriesWithSorting stories={stories} />
 		</>
 	)
 }

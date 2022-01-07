@@ -1,4 +1,5 @@
 import React from "react";
+import WithSorting from "./sorting";
 
 interface IStoriesList {
   stories: Array<IStory>;
@@ -12,8 +13,7 @@ export interface IStory {
   url: string;
 }
 
-const StoriesList = (props: IStoriesList) => {
-  console.log("props.stories=", props.stories);
+const StoriesList = ({stories}: IStoriesList) => {
   return (
     <>
       <h3>Stories</h3>
@@ -27,8 +27,8 @@ const StoriesList = (props: IStoriesList) => {
           </tr>
         </thead>
         <tbody>
-          {props.stories.length > 0 ?
-            props.stories.map((story: IStory) => (
+          {stories.length > 0 ?
+            stories.map((story: IStory) => (
               <tr key={story.id}>
                 <td>{story.title}</td>
                 <td>{story.author}</td>
@@ -44,4 +44,4 @@ const StoriesList = (props: IStoriesList) => {
   );
 };
 
-export default React.memo(StoriesList);
+export default React.memo(WithSorting(StoriesList))
