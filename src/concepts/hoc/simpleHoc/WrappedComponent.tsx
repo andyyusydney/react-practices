@@ -10,6 +10,10 @@ const WrappedComponent = ({
   console.log("useHocProps=", useHocProps);
   return (
     <>
+      <p>
+        source:&nbsp;
+        <a href="https://stackoverflow.com/questions/58276103/how-to-access-props-in-a-functional-hoc">How to access props in a functional HOC?</a>
+      </p>
       <dl>
         <dt>injectedHocProps: </dt>
         <dd>
