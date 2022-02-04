@@ -28,7 +28,7 @@ describe("<Seach />", () => {
 
   it("rendered search component", () => {
     expect(screen.getByText("Search Wrapper")).toBeInTheDocument();
-    expect(screen.getByRole("button")).toBeInTheDocument();
+    expect(screen.getByText("Search")).toBeInTheDocument();
     expect(screen.getByTestId("keyword")).toBeInTheDocument();
     expect(screen.getByText("No stories")).toBeInTheDocument();
   });
@@ -40,7 +40,7 @@ describe("<Seach />", () => {
 
   it("request with keywork when click search button", async () => {
     await userEvent.type(screen.getByTestId("keyword"), "React");
-    await userEvent.click(screen.getByRole("button"), { bubbles: true });
+    await userEvent.click(screen.getByText("Search"), { bubbles: true });
     await waitFor(() => {
       expect(axios.get).toBeCalledWith(
         `http://hn.algolia.com/api/v1/search?query=${keyword}`
